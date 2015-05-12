@@ -45,13 +45,13 @@ public class ShipController : MonoBehaviour {
 			transform.Translate(touchDeltaPosition.x * touchSpeed, touchDeltaPosition.y * touchSpeed, 0);
 		}
 
-		if (transform.position.x <= -5.5f)
-			transform.position = new Vector2(-5.5f, transform.position.y);
-		else if (transform.position.x >= 5.5f)
-			transform.position = new Vector2(5.5f, transform.position.y);
+		if (transform.position.x <= -4.5f)
+			transform.position = new Vector2(-4.5f, transform.position.y);
+		else if (transform.position.x >= 4.5f)
+			transform.position = new Vector2(4.5f, transform.position.y);
 		else if (transform.position.y >= 5.5f)
 			transform.position = new Vector2(transform.position.x, 5.5f);
-		else if (transform.position.y <= -5.5f)
-			transform.position = new Vector2(transform.position.x, -5.5f);
+		else if (transform.position.y <= -6.5f)
+			transform.position = new Vector2(transform.position.x, -6.5f);
 	}
 }	
