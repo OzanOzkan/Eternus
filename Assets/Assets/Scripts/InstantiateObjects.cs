@@ -10,6 +10,7 @@ public class InstantiateObjects : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		// Spawn methods for game objecs.
 		Invoke("SpawnGalaxy", 20);
 		Invoke("SpawnStar", 5);
 	}
@@ -19,6 +20,7 @@ public class InstantiateObjects : MonoBehaviour {
 
 	}
 
+	// Galaxy spawn
 	void SpawnGalaxy(){
 		vector = new Vector3 (Random.Range(-12,12), 12 , 0);
 		var rnd = Random.Range (0, 0);
@@ -27,6 +29,7 @@ public class InstantiateObjects : MonoBehaviour {
 		Invoke("SpawnGalaxy", 20);
 	}
 
+	// Star spawn
 	void SpawnStar(){
 		vector = new Vector3 (Random.Range(-12,12), 12 , 0);
 		var rnd = Random.Range (0, 2);

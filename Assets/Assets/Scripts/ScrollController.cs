@@ -3,6 +3,8 @@ using System.Collections;
 
 public class ScrollController : MonoBehaviour {
 
+	public float scrollSpeed;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -10,6 +12,11 @@ public class ScrollController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Translate (-Vector2.up * 2 * Time.deltaTime);
+		// Move spawned object to -Y constantly.
+		transform.Translate (-Vector2.up * scrollSpeed * Time.deltaTime);
+
+		// If spawned object went out to screen, destroy it.
+		if (transform.position.y <= -18)
+			Destroy (this.gameObject);
 	}
 }

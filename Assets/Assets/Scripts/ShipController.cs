@@ -18,6 +18,7 @@ public class ShipController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		// PC Controls
 		if (Input.GetKeyDown (moveLeft)) {
 			var vel = rigidbody2D.velocity;
 			vel.x = -1 * speed;
@@ -40,14 +41,16 @@ public class ShipController : MonoBehaviour {
 			rigidbody2D.velocity = vel;
 		}
 
+		// Touch Controls
 		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) {
 			Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
 			transform.Translate(touchDeltaPosition.x * touchSpeed, touchDeltaPosition.y * touchSpeed, 0);
 		}
 
-		if (transform.position.x <= -4.5f)
-			transform.position = new Vector2(-4.5f, transform.position.y);
-		else if (transform.position.x >= 4.5f)
+		// Limiting player's movement boundaries
+		if (transform.position.x <= -4.0f)
+			transform.position = new Vector2(-4.0f, transform.position.y);
+		else if (transform.position.x >= 4.0f)
 			transform.position = new Vector2(4.5f, transform.position.y);
 		else if (transform.position.y >= 5.5f)
 			transform.position = new Vector2(transform.position.x, 5.5f);
