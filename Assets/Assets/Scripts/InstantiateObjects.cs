@@ -3,19 +3,31 @@ using System.Collections;
 
 public class InstantiateObjects : MonoBehaviour {
 
-	public GameObject galaxy1;
+	public GameObject[] galaxies;
+	private GameObject currentGalaxy;
 	public Vector3 vector;
 	public float moveSpeed;
 
 	// Use this for initialization
 	void Start () {
-		vector = new Vector3 (Random.Range(-15,15), 10 , 0);
-		galaxy1 = (GameObject)Instantiate (galaxy1, vector, Quaternion.identity);
+		Invoke("SpawnGalaxy", 20);
 	}
 
 	// Update is called once per frame
 	void Update () {
-		galaxy1.transform.Translate (-Vector2.up * moveSpeed * Time.deltaTime);
-		// galaxy1.transform.position = Vector3.Lerp (galaxy1.transform.position, new Vector3 (galaxy1.transform.position.x, -10, galaxy1.transform.position.z), 0.1f);
+		if (currentGalaxy != null){
+			currentGalaxy.transform.Translate (-Vector2.up * moveSpeed * Time.deltaTime);
+
+			if(currentGalaxy.transform.position.y <= -18)
+				Destroy(currentGalaxy);
+		}
+	}
+
+	void SpawnGalaxy(){
+		vector = new Vector3 (Random.Range(-12,12), 18 , 0);
+		var rnd = Random.Range (0, 3);
+		currentGalaxy = (GameObject)Instantiate (galaxies[rnd], vector, Quaternion.identity);
+
+		Invoke("SpawnGalaxy", 20);
 	}
 }
