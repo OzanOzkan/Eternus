@@ -8,6 +8,7 @@ public class InstantiateObjects : MonoBehaviour {
 	public GameObject bullet;
 	public GameObject laserbeam;
 	public GameObject ship;
+	public GameObject ultiLaser;
 	public Vector3 vector;
 	public float moveSpeed;
 	public float bulletFireSpeed;
@@ -20,11 +21,14 @@ public class InstantiateObjects : MonoBehaviour {
 		Invoke("SpawnStar", 5);
 		Invoke("SpawnBullet", bulletFireSpeed);
 		Invoke("SpawnLaserBeam", laserFireSpeed);
+		SpawnUltiLaser ();
 	}
 
 	// Update is called once per frame
 	void Update () {
-
+		if (ultiLaser != null) {
+			ultiLaser.transform.position = ship.transform.position;
+		}
 	}
 
 	// Galaxy spawn
@@ -58,8 +62,12 @@ public class InstantiateObjects : MonoBehaviour {
 	}
 
 	void SpawnLaserBeam(){
-		GameObject currentBullet = (GameObject)Instantiate (laserbeam, ship.transform.position, Quaternion.identity);
+		GameObject currentLaserBeam = (GameObject)Instantiate (laserbeam, ship.transform.position, Quaternion.identity);
 		
 		Invoke("SpawnLaserBeam", laserFireSpeed);
+	}
+
+	void SpawnUltiLaser(){
+		ultiLaser = (GameObject)Instantiate (ultiLaser, ship.transform.position, Quaternion.identity);
 	}
 }

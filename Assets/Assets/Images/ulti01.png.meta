@@ -1,0 +1,333 @@
+fileFormatVersion: 2
+guid: 96a8bf341ea510642a73f03a9a60630b
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: ulti01_0
+    21300002: ulti01_1
+    21300004: ulti01_2
+    21300006: ulti01_3
+    21300008: ulti01_4
+    21300010: ulti01_5
+    21300012: ulti01_6
+    21300014: ulti01_7
+    21300016: ulti01_8
+    21300018: ulti01_9
+    21300020: ulti01_10
+    21300022: ulti01_11
+    21300024: ulti01_12
+    21300026: ulti01_13
+    21300028: ulti01_14
+    21300030: ulti01_15
+    21300032: ulti01_16
+    21300034: ulti01_17
+    21300036: ulti01_18
+    21300038: ulti01_19
+    21300040: ulti01_20
+    21300042: ulti01_21
+    21300044: ulti01_22
+    21300046: ulti01_23
+    21300048: ulti01_24
+    21300050: ulti01_25
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 7
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: ulti01_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1017
+        width: 125
+        height: 1006
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ulti01_1
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 1020
+        width: 117
+        height: 1001
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ulti01_2
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 1017
+        width: 126
+        height: 1006
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ulti01_3
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1017
+        width: 126
+        height: 1006
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ulti01_4
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 1017
+        width: 124
+        height: 1006
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ulti01_5
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 1018
+        width: 122
+        height: 1004
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ulti01_6
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 1017
+        width: 126
+        height: 1006
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ulti01_7
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 1017
+        width: 126
+        height: 1006
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ulti01_8
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 1017
+        width: 124
+        height: 1006
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ulti01_9
+      rect:
+        serializedVersion: 2
+        x: 1219
+        y: 1020
+        width: 116
+        height: 1001
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ulti01_10
+      rect:
+        serializedVersion: 2
+        x: 1349
+        y: 1017
+        width: 126
+        height: 1006
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ulti01_11
+      rect:
+        serializedVersion: 2
+        x: 1483
+        y: 1017
+        width: 126
+        height: 1006
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ulti01_12
+      rect:
+        serializedVersion: 2
+        x: 1619
+        y: 1017
+        width: 125
+        height: 1006
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ulti01_13
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 1018
+        width: 124
+        height: 1004
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ulti01_14
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 124
+        height: 1007
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ulti01_15
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 0
+        width: 124
+        height: 1006
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ulti01_16
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 0
+        width: 125
+        height: 1007
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ulti01_17
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 2
+        width: 119
+        height: 1003
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ulti01_18
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 0
+        width: 124
+        height: 1007
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ulti01_19
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 0
+        width: 124
+        height: 1006
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ulti01_20
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 0
+        width: 126
+        height: 1006
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ulti01_21
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 2
+        width: 122
+        height: 1004
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ulti01_22
+      rect:
+        serializedVersion: 2
+        x: 1181
+        y: 0
+        width: 124
+        height: 1007
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ulti01_23
+      rect:
+        serializedVersion: 2
+        x: 1327
+        y: 0
+        width: 126
+        height: 1006
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ulti01_24
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 0
+        width: 124
+        height: 1007
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ulti01_25
+      rect:
+        serializedVersion: 2
+        x: 1625
+        y: 2
+        width: 119
+        height: 1003
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
