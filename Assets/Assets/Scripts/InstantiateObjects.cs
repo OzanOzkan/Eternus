@@ -9,6 +9,7 @@ public class InstantiateObjects : MonoBehaviour {
 	public GameObject bullet;
 	public GameObject laserbeam;
 	public GameObject ship;
+	public GameObject shipCannon;
 	public GameObject ultiLaser;
 	public Vector3 vector;
 	public float moveSpeed;
@@ -21,7 +22,7 @@ public class InstantiateObjects : MonoBehaviour {
 		// Spawn methods for game objecs.
 		Invoke("SpawnGalaxy", 20);
 		Invoke("SpawnStar", 5);
-		//Invoke("SpawnBullet", bulletFireSpeed);
+		Invoke("SpawnBullet", bulletFireSpeed);
 		Invoke("SpawnLaserBeam", laserFireSpeed);
 		Invoke("SpawnEnemies", enemySpawnSpeed);
 		//SpawnUltiLaser ();
@@ -30,7 +31,7 @@ public class InstantiateObjects : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (ultiLaser != null) {
-			ultiLaser.transform.position = ship.transform.position;
+			ultiLaser.transform.position = shipCannon.transform.position;
 		}
 	}
 
@@ -59,19 +60,19 @@ public class InstantiateObjects : MonoBehaviour {
 	}
 
 	void SpawnBullet(){
-		GameObject currentBullet = (GameObject)Instantiate (bullet, ship.transform.position, Quaternion.identity);
+		GameObject currentBullet = (GameObject)Instantiate (bullet, shipCannon.transform.position, Quaternion.identity);
 
 		Invoke("SpawnBullet", bulletFireSpeed);
 	}
 
 	void SpawnLaserBeam(){
-		GameObject currentLaserBeam = (GameObject)Instantiate (laserbeam, ship.transform.position, Quaternion.identity);
+		GameObject currentLaserBeam = (GameObject)Instantiate (laserbeam, shipCannon.transform.position, Quaternion.identity);
 		
 		Invoke("SpawnLaserBeam", laserFireSpeed);
 	}
 
 	void SpawnUltiLaser(){
-		ultiLaser = (GameObject)Instantiate (ultiLaser, ship.transform.position, Quaternion.identity);
+		ultiLaser = (GameObject)Instantiate (ultiLaser, shipCannon.transform.position, Quaternion.identity);
 	}
 
 	void SpawnEnemies(){

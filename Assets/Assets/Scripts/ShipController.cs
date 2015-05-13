@@ -11,6 +11,8 @@ public class ShipController : MonoBehaviour {
 	public float speed = 10.0f;
 	public float touchSpeed = 0.05f;
 
+	public GameObject shipCannon;
+
 	// Use this for initialization
 	void Start () {
 
@@ -18,6 +20,8 @@ public class ShipController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		shipCannon.transform.position = this.transform.position + new Vector3 (0.0f, 2.0f, 0.0f);
+
 		// PC Controls
 		if (Input.GetKeyDown (moveLeft)) {
 			var vel = rigidbody2D.velocity;
@@ -56,5 +60,13 @@ public class ShipController : MonoBehaviour {
 			transform.position = new Vector2(transform.position.x, 5.5f);
 		else if (transform.position.y <= -6.5f)
 			transform.position = new Vector2(transform.position.x, -6.5f);
+	}
+
+	void OnCollisionEnter2D (Collision2D col){
+		if (col.gameObject.tag == "EnemyBullet" || col.gameObject.tag == "Enemies") {
+			Destroy(this.gameObject);
+			Destroy(shipCannon.gameObject);
+			Destroy(col.gameObject);
+		}
 	}
 }	
