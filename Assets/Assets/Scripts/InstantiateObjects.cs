@@ -5,6 +5,7 @@ public class InstantiateObjects : MonoBehaviour {
 
 	public GameObject[] galaxies;
 	public GameObject[] stars;
+	public GameObject[] enemies;
 	public GameObject bullet;
 	public GameObject laserbeam;
 	public GameObject ship;
@@ -13,15 +14,17 @@ public class InstantiateObjects : MonoBehaviour {
 	public float moveSpeed;
 	public float bulletFireSpeed;
 	public float laserFireSpeed;
+	public float enemySpawnSpeed;
 
 	// Use this for initialization
 	void Start () {
 		// Spawn methods for game objecs.
 		Invoke("SpawnGalaxy", 20);
 		Invoke("SpawnStar", 5);
-		Invoke("SpawnBullet", bulletFireSpeed);
+		//Invoke("SpawnBullet", bulletFireSpeed);
 		Invoke("SpawnLaserBeam", laserFireSpeed);
-		SpawnUltiLaser ();
+		Invoke("SpawnEnemies", enemySpawnSpeed);
+		//SpawnUltiLaser ();
 	}
 
 	// Update is called once per frame
@@ -33,7 +36,7 @@ public class InstantiateObjects : MonoBehaviour {
 
 	// Galaxy spawn
 	void SpawnGalaxy(){
-		vector = new Vector3 (Random.Range(-12,12), 12 , 0);
+		vector = new Vector3 (Random.Range(-5,5), 12 , 0);
 		var rnd = Random.Range (0, 0);
 		GameObject galaxy = (GameObject)Instantiate (galaxies[rnd], vector, Quaternion.identity);
 
@@ -45,7 +48,7 @@ public class InstantiateObjects : MonoBehaviour {
 
 	// Star spawn
 	void SpawnStar(){
-		vector = new Vector3 (Random.Range(-12,12), 12 , 0);
+		vector = new Vector3 (Random.Range(-5,5), 12 , 0);
 		var rnd = Random.Range (0, 2);
 		GameObject star = (GameObject)Instantiate (stars[rnd], vector, Quaternion.identity);
 
@@ -69,5 +72,13 @@ public class InstantiateObjects : MonoBehaviour {
 
 	void SpawnUltiLaser(){
 		ultiLaser = (GameObject)Instantiate (ultiLaser, ship.transform.position, Quaternion.identity);
+	}
+
+	void SpawnEnemies(){
+		vector = new Vector3 (Random.Range(-3.2f,3.2f), 12 , 0);
+		var rnd = Random.Range (0, 0);
+		GameObject currentEnemy = (GameObject)Instantiate (enemies[rnd], vector, Quaternion.identity);
+
+		Invoke("SpawnEnemies", enemySpawnSpeed);
 	}
 }

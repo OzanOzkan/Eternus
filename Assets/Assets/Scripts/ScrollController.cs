@@ -29,6 +29,13 @@ public class ScrollController : MonoBehaviour
 			// If spawned object went out to screen, destroy it.
 			if (transform.position.y <= -18)
 				Destroy (this.gameObject);
+		} else if (gameObject.tag == "Enemies"){
+			// Move spawned object to -Y constantly.
+			transform.Translate (-Vector2.up * scrollSpeed * Time.deltaTime);
+			
+			// If spawned object went out to screen, destroy it.
+			if (transform.position.y <= -18)
+				Destroy (this.gameObject);
 		}
 	}
 }
