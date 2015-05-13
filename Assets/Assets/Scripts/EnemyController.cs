@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour {
 	void OnCollisionEnter2D (Collision2D col){
 		if (col.gameObject.tag == "Bullets") {
 			Destroy(this.gameObject);
+			Destroy(col.gameObject);
 		}
 	}
 }
