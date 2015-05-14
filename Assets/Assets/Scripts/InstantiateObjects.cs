@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class InstantiateObjects : MonoBehaviour {
-
+	
 	public GameObject[] galaxies;
 	public GameObject[] stars;
 	public GameObject[] enemies;
@@ -26,6 +26,8 @@ public class InstantiateObjects : MonoBehaviour {
 		Invoke("SpawnLaserBeam", laserFireSpeed);
 		Invoke("SpawnEnemies", enemySpawnSpeed);
 		//SpawnUltiLaser ();
+
+		//Debug.Log (Camera.main.aspect.ToString ());
 	}
 
 	// Update is called once per frame
@@ -76,7 +78,7 @@ public class InstantiateObjects : MonoBehaviour {
 	}
 
 	void SpawnEnemies(){
-		vector = new Vector3 (Random.Range(-3.2f,3.2f), 12 , 0);
+		vector = new Vector3 (Random.Range(1.2f,8.2f), 12 , 0);
 		var rnd = Random.Range (0, 0);
 		GameObject currentEnemy = (GameObject)Instantiate (enemies[rnd], vector, Quaternion.identity);
 
