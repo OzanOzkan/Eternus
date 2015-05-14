@@ -17,13 +17,19 @@ public class InstantiateObjects : MonoBehaviour {
 	public float laserFireSpeed;
 	public float enemySpawnSpeed;
 
+	GameObject gameController;
+	public float laserBeamKillTreshold;
+	bool laserBeamControl;
+
 	// Use this for initialization
 	void Start () {
+		gameController = GameObject.Find("GameController");
+		laserBeamControl = true;
+
 		// Spawn methods for game objecs.
 		Invoke("SpawnGalaxy", 20);
 		Invoke("SpawnStar", 5);
 		Invoke("SpawnBullet", bulletFireSpeed);
-		Invoke("SpawnLaserBeam", laserFireSpeed);
 		Invoke("SpawnEnemies", enemySpawnSpeed);
 		//SpawnUltiLaser ();
 
@@ -34,6 +40,12 @@ public class InstantiateObjects : MonoBehaviour {
 	void Update () {
 		if (ultiLaser != null) {
 			ultiLaser.transform.position = shipCannon.transform.position;
+		}
+
+		GUIController guiController = gameController.GetComponent<GUIController>();
+		if (guiController.killCount >= laserBeamKillTreshold && laserBeamControl) {
+			Invoke ("SpawnLaserBeam", laserFireSpeed);
+			laserBeamControl = false;
 		}
 	}
 

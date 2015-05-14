@@ -6,6 +6,8 @@ public class EnemyController : MonoBehaviour {
 	public GameObject enemyBullet;
 	public float bulletFireSpeed;
 	public GameObject enemyCannon;
+	public GameObject blastPrefab;
+	public float destroyDelay = 2.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -18,9 +20,15 @@ public class EnemyController : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D (Collision2D col){
-		if (col.gameObject.tag == "Bullets") {
+		if (col.gameObject.tag == "Bullets" || col.gameObject.tag == "PlayerUlti") {
 			Destroy(this.gameObject);
-			Destroy(col.gameObject);
+			GameObject blast = (GameObject)Instantiate (blastPrefab,this.transform.position, Quaternion.identity);
+			Destroy(blast.gameObject, 0.5f);
+
+			if (col.gameObject.tag != "PlayerUlti"){
+				Destroy(col.gameObject);
+			}
+
 			GameObject gameController = GameObject.Find("GameController");
 			GUIController guiController = gameController.GetComponent<GUIController>();
 			guiController.killCount = guiController.killCount + 1;
