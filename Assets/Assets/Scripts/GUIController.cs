@@ -6,6 +6,7 @@ public class GUIController : MonoBehaviour {
 
 	public float killCount;
 	public Text scoreText;
+	public GameObject uiRestartButton;
 
 	// Use this for initialization
 	void Start () {
@@ -15,5 +16,9 @@ public class GUIController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		scoreText.text = killCount.ToString ();
+	}
+
+	public void RestartClicked(){
+		Application.LoadLevel ("GameO01");
 	}
 }
