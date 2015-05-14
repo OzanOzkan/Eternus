@@ -20,7 +20,7 @@ public class ScrollController : MonoBehaviour
 			transform.Translate (Vector2.up * scrollSpeed * Time.deltaTime);
 			
 			// If spawned object went out to screen, destroy it.
-			if (transform.position.y >= 15)
+			if (transform.position.y >= 7)
 				Destroy (this.gameObject);
 		} else if (gameObject.tag == "Stars") {
 			// Move spawned object to -Y constantly.

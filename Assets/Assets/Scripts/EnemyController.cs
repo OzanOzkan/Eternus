@@ -21,12 +21,17 @@ public class EnemyController : MonoBehaviour {
 		if (col.gameObject.tag == "Bullets") {
 			Destroy(this.gameObject);
 			Destroy(col.gameObject);
+			GameObject gameController = GameObject.Find("GameController");
+			GUIController guiController = gameController.GetComponent<GUIController>();
+			guiController.killCount = guiController.killCount + 1;
 		}
 	}
 
 	void SpawnBullet(){
-		GameObject currentBullet = (GameObject)Instantiate (enemyBullet, enemyCannon.transform.position, Quaternion.identity);
-		
+		if (this.transform.position.y <= 11.4f){
+			GameObject currentBullet = (GameObject)Instantiate (enemyBullet, enemyCannon.transform.position, Quaternion.identity);
+		}
+
 		Invoke("SpawnBullet", bulletFireSpeed);
 	}
 }
