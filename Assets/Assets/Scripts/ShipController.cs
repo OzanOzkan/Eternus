@@ -69,8 +69,8 @@ public class ShipController : MonoBehaviour {
 			Destroy(col.gameObject);
 
 			GameObject UI = GameObject.Find("UI");
-			GameObject restartButton = UI.transform.Find("restartButton").gameObject;
-			restartButton.SetActive(true);
+			GameObject Buttons = UI.transform.Find("Buttons").gameObject;
+			Buttons.SetActive(true);
 		}
 	}
 }	

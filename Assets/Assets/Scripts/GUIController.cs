@@ -7,6 +7,7 @@ public class GUIController : MonoBehaviour {
 	public float killCount;
 	public Text scoreText;
 	public GameObject uiRestartButton;
+	bool countDown = true;
 
 	// Use this for initialization
 	void Start () {
@@ -20,5 +21,9 @@ public class GUIController : MonoBehaviour {
 
 	public void RestartClicked(){
 		Application.LoadLevel ("GameO01");
+	}
+
+	public void BackToMainMenuClicked(){
+		Application.LoadLevel ("Menu");
 	}
 }
