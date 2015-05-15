@@ -13,6 +13,8 @@ public class ShipController : MonoBehaviour {
 
 	public GameObject shipCannon;
 
+	public float health;
+
 	// Use this for initialization
 	void Start () {
 
@@ -60,17 +62,27 @@ public class ShipController : MonoBehaviour {
 			transform.position = new Vector2(transform.position.x, 5.5f);
 		else if (transform.position.y <= -6.5f)
 			transform.position = new Vector2(transform.position.x, -6.5f);
+
+		//if (renderer.bounds.Intersects (object2.renderer.bounds)) {
+		
+		//}
 	}
 
 	void OnCollisionEnter2D (Collision2D col){
 		if (col.gameObject.tag == "EnemyBullet" || col.gameObject.tag == "Enemies") {
-			Destroy(this.gameObject);
-			Destroy(shipCannon.gameObject);
+
 			Destroy(col.gameObject);
 
-			GameObject UI = GameObject.Find("UI");
-			GameObject Buttons = UI.transform.Find("Buttons").gameObject;
-			Buttons.SetActive(true);
+			if(health > 1){
+				health -= 1;
+			} else {
+				Destroy(this.gameObject);
+				Destroy(shipCannon.gameObject);
+				
+				GameObject UI = GameObject.Find("UI");
+				GameObject Buttons = UI.transform.Find("Buttons").gameObject;
+				Buttons.SetActive(true);
+			}
 		}
 	}
 }	
