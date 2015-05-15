@@ -14,6 +14,8 @@ public class ShipController : MonoBehaviour {
 	public GameObject shipCannon;
 
 	public float health;
+	public float level;
+	public float killCount;
 
 	// Use this for initialization
 	void Start () {
@@ -63,9 +65,14 @@ public class ShipController : MonoBehaviour {
 		else if (transform.position.y <= -6.5f)
 			transform.position = new Vector2(transform.position.x, -6.5f);
 
-		//if (renderer.bounds.Intersects (object2.renderer.bounds)) {
-		
-		//}
+		if (killCount == 10) {
+			level++;
+		}
+
+		if(killCount % 10 == 0 && level >= 2){
+			level++;
+		}
+
 	}
 
 	void OnCollisionEnter2D (Collision2D col){

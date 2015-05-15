@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class GUIController : MonoBehaviour {
 
-	public float killCount;
 	public Text scoreText;
+	public Text levelText;
 	bool countDown = true;
 	public ShipController shipController;
 
@@ -19,7 +19,8 @@ public class GUIController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		scoreText.text = killCount.ToString ();
+		scoreText.text = shipController.killCount.ToString ();
+		levelText.text = shipController.level.ToString ();
 
 		if (shipController.health == 5)
 			healthBar.fillAmount = 0.408f;
@@ -31,6 +32,8 @@ public class GUIController : MonoBehaviour {
 			healthBar.fillAmount = 0.099f;
 		else if (shipController.health == 1)
 			healthBar.fillAmount = 0.0f;
+
+
 	}
 
 	public void RestartClicked(){

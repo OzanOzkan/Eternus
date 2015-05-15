@@ -29,9 +29,9 @@ public class EnemyController : MonoBehaviour {
 				Destroy(col.gameObject);
 			}
 
-			GameObject gameController = GameObject.Find("GameController");
-			GUIController guiController = gameController.GetComponent<GUIController>();
-			guiController.killCount = guiController.killCount + 1;
+			GameObject ship = GameObject.Find("Ship");
+			ShipController shipController = ship.GetComponent<ShipController>();
+			shipController.killCount = shipController.killCount + 1;
 		}
 	}
 

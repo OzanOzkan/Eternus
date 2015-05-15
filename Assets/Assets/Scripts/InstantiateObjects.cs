@@ -42,8 +42,7 @@ public class InstantiateObjects : MonoBehaviour {
 			ultiLaser.transform.position = shipCannon.transform.position;
 		}
 
-		GUIController guiController = gameController.GetComponent<GUIController>();
-		if (guiController.killCount >= laserBeamKillTreshold && laserBeamControl) {
+		if (ship.GetComponent<ShipController>().killCount >= laserBeamKillTreshold && laserBeamControl) {
 			Invoke ("SpawnLaserBeam", laserFireSpeed);
 			laserBeamControl = false;
 		}
