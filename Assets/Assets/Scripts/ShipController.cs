@@ -16,6 +16,7 @@ public class ShipController : MonoBehaviour {
 	public float health;
 	public float level;
 	public float killCount;
+	public float newLevelSeed;
 
 	// Use this for initialization
 	void Start () {
@@ -65,12 +66,9 @@ public class ShipController : MonoBehaviour {
 		else if (transform.position.y <= -6.5f)
 			transform.position = new Vector2(transform.position.x, -6.5f);
 
-		if (killCount == 10) {
+		if (killCount == newLevelSeed) {
 			level++;
-		}
-
-		if(killCount % 10 == 0 && level >= 2){
-			level++;
+			newLevelSeed += newLevelSeed;
 		}
 
 	}
