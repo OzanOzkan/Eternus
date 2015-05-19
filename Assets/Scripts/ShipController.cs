@@ -66,6 +66,7 @@ public class ShipController : MonoBehaviour {
 		else if (transform.position.y <= -6.5f)
 			transform.position = new Vector2(transform.position.x, -6.5f);
 
+		// Levelling
 		if (killCount == newLevelSeed) {
 			level++;
 			newLevelSeed += newLevelSeed;
