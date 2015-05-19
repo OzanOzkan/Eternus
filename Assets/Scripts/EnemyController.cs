@@ -21,9 +21,10 @@ public class EnemyController : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D col){
 		if (col.gameObject.tag == "Bullets" || col.gameObject.tag == "PlayerUlti") {
-			Destroy(this.gameObject);
 			GameObject blast = (GameObject)Instantiate (blastPrefab,this.transform.position, Quaternion.identity);
 			Destroy(blast.gameObject, 0.5f);
+			Destroy(enemyCannon.gameObject);
+			Destroy(this.gameObject);
 
 			if (col.gameObject.tag != "PlayerUlti"){
 				Destroy(col.gameObject);
