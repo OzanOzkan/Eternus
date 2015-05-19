@@ -6,6 +6,7 @@ public class GUIController : MonoBehaviour {
 
 	bool countDown = true;
 	public ShipController shipController;
+	public float ultiBarFullTreshold;
 
 	// User Interface
 	public Text scoreText;
@@ -14,6 +15,8 @@ public class GUIController : MonoBehaviour {
 	public Image ultiBar;
 
 	float[]ultiBarLevels;
+	int filledUltiBarLevel;
+	public float currentKill;
 
 	// Use this for initialization
 	void Start () {
@@ -37,6 +40,9 @@ public class GUIController : MonoBehaviour {
 		ultiBarLevels [14] = 1f;
 
 		ultiBar.fillAmount = ultiBarLevels [0];
+		ultiBarFullTreshold = 14;
+		filledUltiBarLevel = 0;
+		currentKill = 0;
 	}
 	
 	// Update is called once per frame
@@ -54,6 +60,20 @@ public class GUIController : MonoBehaviour {
 			healthBar.fillAmount = 0.099f;
 		else if (shipController.health == 1)
 			healthBar.fillAmount = 0.0f;
+
+		if (shipController.killCount >= ultiBarFullTreshold) {
+			ultiBarFullTreshold = 14 * shipController.level;
+		}
+
+		if (currentKill == shipController.level) {
+			filledUltiBarLevel++;
+			ultiBar.fillAmount = ultiBarLevels[filledUltiBarLevel];
+			currentKill = 0;
+		}
+
+		if (filledUltiBarLevel == 14) {
+			filledUltiBarLevel = 0;
+		}
 	}
 
 	public void RestartClicked(){

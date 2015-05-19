@@ -32,6 +32,10 @@ public class EnemyController : MonoBehaviour {
 			GameObject ship = GameObject.Find("Ship");
 			ShipController shipController = ship.GetComponent<ShipController>();
 			shipController.killCount = shipController.killCount + 1;
+
+			GameObject gameController = GameObject.Find("GameController");
+			GUIController guiController = gameController.GetComponent<GUIController>();
+			guiController.currentKill = guiController.currentKill + 1;
 		}
 	}
 
