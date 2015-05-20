@@ -12,6 +12,8 @@ public class ShipController : MonoBehaviour {
 	public float touchSpeed = 0.05f;
 
 	public GameObject shipCannon;
+	public GameObject shield;
+	bool shieldActive;
 
 	public float health;
 	public float level;
@@ -20,7 +22,7 @@ public class ShipController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		shieldActive = false;
 	}
 	
 	// Update is called once per frame
@@ -66,10 +68,24 @@ public class ShipController : MonoBehaviour {
 		else if (transform.position.y <= -6.5f)
 			transform.position = new Vector2(transform.position.x, -6.5f);
 
+		// Levelling
 		if (killCount == newLevelSeed) {
 			level++;
 			newLevelSeed += newLevelSeed;
 		}
+
+		// Test Shield
+		if (killCount >= 10 && !shieldActive) {
+			shield = (GameObject)Instantiate (shield, this.transform.position, Quaternion.identity);
+
+			BoxCollider2D collider = GetComponent<BoxCollider2D>();
+			collider.enabled = false;
+
+			shieldActive = true;
+		}
+
+		shield.transform.position = this.transform.position;
+
 
 	}
 
