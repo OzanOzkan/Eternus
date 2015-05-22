@@ -12,17 +12,26 @@ public class ShipController : MonoBehaviour {
 	public float touchSpeed = 0.05f;
 
 	public GameObject shipCannon;
-	public GameObject shield;
 	bool shieldActive;
+	bool laserBeamActive;
+	bool ulti01Active;
+	public float laserFireSpeed;
 
 	public float health;
 	public float level;
 	public float killCount;
 	public float newLevelSeed;
 
+	public GameObject[] powerUps;
+	GameObject tempShield;
+	public int randomPowerUp;
+	float savedTime;
+
 	// Use this for initialization
 	void Start () {
 		shieldActive = false;
+		laserBeamActive = false;
+		randomPowerUp = -1;
 	}
 	
 	// Update is called once per frame
@@ -74,18 +83,59 @@ public class ShipController : MonoBehaviour {
 			newLevelSeed += newLevelSeed;
 		}
 
-		// Test Shield
-		if (killCount >= 10 && !shieldActive) {
-			shield = (GameObject)Instantiate (shield, this.transform.position, Quaternion.identity);
+		// Shield
+		if (randomPowerUp == 0) {
+			if (!shieldActive) {
+				tempShield = (GameObject)Instantiate (powerUps [0], this.transform.position, Quaternion.identity);
 
-			BoxCollider2D collider = GetComponent<BoxCollider2D>();
-			collider.enabled = false;
+				BoxCollider2D collider = GetComponent<BoxCollider2D> ();
+				collider.enabled = false;
+				
+				shieldActive = true;
+				savedTime = Time.time;
+			} else {
+				if (Time.time - savedTime >= 7) {
+					shieldActive = false;
+					randomPowerUp = -1;
 
-			shieldActive = true;
+					BoxCollider2D collider = GetComponent<BoxCollider2D> ();
+					collider.enabled = true;
+
+					Destroy (tempShield);
+				} else {
+					tempShield.transform.position = this.transform.position;
+				}
+			}
 		}
+		// Laser Beam
+		else if (randomPowerUp == 1) {
+			if (!laserBeamActive) {
+				Invoke ("SpawnLaserBeam", laserFireSpeed);
+				laserBeamActive = true;
+				savedTime = Time.time;
+			} else {
+				if (Time.time - savedTime >= 7) {
+					laserBeamActive = false;
+					randomPowerUp = -1;
+				}
+			}
+		} // Ulti 01 
+		else if (randomPowerUp == 2) {
+			if (!ulti01Active){
+				tempShield = (GameObject)Instantiate (powerUps [2], shipCannon.transform.position, Quaternion.identity);
+				ulti01Active = true;
+				savedTime = Time.time;
+			} else {
+				if(Time.time - savedTime >= 7){
+					ulti01Active = false;
+					randomPowerUp = -1;
 
-		shield.transform.position = this.transform.position;
-
+					Destroy(tempShield);
+				} else {
+					tempShield.transform.position = shipCannon.transform.position;
+				}
+			}
+		}
 
 	}
 
@@ -104,6 +154,14 @@ public class ShipController : MonoBehaviour {
 				GameObject Buttons = UI.transform.Find("Buttons").gameObject;
 				Buttons.SetActive(true);
 			}
+		}
+	}
+
+	void SpawnLaserBeam(){
+		GameObject currentLaserBeam = (GameObject)Instantiate (powerUps[1], shipCannon.transform.position, Quaternion.identity);
+
+		if (laserBeamActive) {
+			Invoke ("SpawnLaserBeam", laserFireSpeed);
 		}
 	}
 }	

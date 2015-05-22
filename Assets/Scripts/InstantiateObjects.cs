@@ -38,14 +38,11 @@ public class InstantiateObjects : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (ultiLaser != null) {
-			ultiLaser.transform.position = shipCannon.transform.position;
-		}
-
+		/*
 		if (ship.GetComponent<ShipController>().killCount >= laserBeamKillTreshold && laserBeamControl) {
 			Invoke ("SpawnLaserBeam", laserFireSpeed);
 			laserBeamControl = false;
-		}
+		}*/
 	}
 
 	// Galaxy spawn
@@ -77,12 +74,12 @@ public class InstantiateObjects : MonoBehaviour {
 
 		Invoke("SpawnBullet", bulletFireSpeed);
 	}
-
+	/*
 	void SpawnLaserBeam(){
 		GameObject currentLaserBeam = (GameObject)Instantiate (laserbeam, shipCannon.transform.position, Quaternion.identity);
 		
 		Invoke("SpawnLaserBeam", laserFireSpeed);
-	}
+	}*/
 
 	void SpawnUltiLaser(){
 		ultiLaser = (GameObject)Instantiate (ultiLaser, shipCannon.transform.position, Quaternion.identity);

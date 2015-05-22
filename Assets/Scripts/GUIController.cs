@@ -72,7 +72,9 @@ public class GUIController : MonoBehaviour {
 		}
 
 		if (filledUltiBarLevel == 14) {
+			shipController.randomPowerUp = Random.Range(0,2);
 			filledUltiBarLevel = 0;
+			ultiBar.fillAmount = ultiBarLevels[filledUltiBarLevel];
 		}
 	}
 
