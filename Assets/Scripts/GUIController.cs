@@ -11,12 +11,15 @@ public class GUIController : MonoBehaviour {
 	// User Interface
 	public Text scoreText;
 	public Text levelText;
+	public Text ultiCountdown;
 	public Image healthBar;
 	public Image ultiBar;
 
 	float[]ultiBarLevels;
 	int filledUltiBarLevel;
 	public float currentKill;
+
+	float storedTime;
 
 	// Use this for initialization
 	void Start () {
@@ -43,6 +46,8 @@ public class GUIController : MonoBehaviour {
 		ultiBarFullTreshold = 14;
 		filledUltiBarLevel = 0;
 		currentKill = 0;
+
+		ultiCountdown.enabled = false; 
 	}
 	
 	// Update is called once per frame
@@ -73,8 +78,17 @@ public class GUIController : MonoBehaviour {
 
 		if (filledUltiBarLevel == 14) {
 			shipController.randomPowerUp = Random.Range(0,2);
+			ultiCountdown.enabled = true;
+			storedTime = Time.time;
 			filledUltiBarLevel = 0;
 			ultiBar.fillAmount = ultiBarLevels[filledUltiBarLevel];
+		}
+
+		if (ultiCountdown.enabled) {
+			ultiCountdown.text = (Time.time - storedTime).ToString("F0");
+
+			if(Time.time - storedTime >= shipController.powerUpDuration)
+				ultiCountdown.enabled = false;
 		}
 	}
 

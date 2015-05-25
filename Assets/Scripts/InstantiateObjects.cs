@@ -6,7 +6,7 @@ public class InstantiateObjects : MonoBehaviour {
 	public GameObject[] galaxies;
 	public GameObject[] stars;
 	public GameObject[] enemies;
-	public GameObject bullet;
+	//public GameObject bullet;
 	public GameObject laserbeam;
 	public GameObject ship;
 	public GameObject shipCannon;
@@ -29,7 +29,7 @@ public class InstantiateObjects : MonoBehaviour {
 		// Spawn methods for game objecs.
 		Invoke("SpawnGalaxy", 20);
 		Invoke("SpawnStar", 5);
-		Invoke("SpawnBullet", bulletFireSpeed);
+		//Invoke("SpawnBullet", bulletFireSpeed);
 		Invoke("SpawnEnemies", enemySpawnSpeed);
 		//SpawnUltiLaser ();
 
@@ -69,11 +69,13 @@ public class InstantiateObjects : MonoBehaviour {
 		Invoke("SpawnStar", 5);
 	}
 
+	/*
 	void SpawnBullet(){
 		GameObject currentBullet = (GameObject)Instantiate (bullet, shipCannon.transform.position, Quaternion.identity);
 
 		Invoke("SpawnBullet", bulletFireSpeed);
 	}
+	*/
 	/*
 	void SpawnLaserBeam(){
 		GameObject currentLaserBeam = (GameObject)Instantiate (laserbeam, shipCannon.transform.position, Quaternion.identity);

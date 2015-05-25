@@ -16,6 +16,8 @@ public class ShipController : MonoBehaviour {
 	bool laserBeamActive;
 	bool ulti01Active;
 	public float laserFireSpeed;
+	public float bulletFireSpeed;
+	public GameObject bullet;
 
 	public float health;
 	public float level;
@@ -26,12 +28,15 @@ public class ShipController : MonoBehaviour {
 	GameObject tempShield;
 	public int randomPowerUp;
 	float savedTime;
+	public float powerUpDuration;
 
 	// Use this for initialization
 	void Start () {
 		shieldActive = false;
 		laserBeamActive = false;
 		randomPowerUp = -1;
+
+		Invoke("SpawnBullet", bulletFireSpeed);
 	}
 	
 	// Update is called once per frame
@@ -81,6 +86,14 @@ public class ShipController : MonoBehaviour {
 		if (killCount == newLevelSeed) {
 			level++;
 			newLevelSeed += newLevelSeed;
+
+			GameObject gameController = GameObject.Find("GameController");
+			InstantiateObjects instantiateObjects = gameController.GetComponent<InstantiateObjects>();
+			if (instantiateObjects.enemySpawnSpeed >= 0.5)
+				instantiateObjects.enemySpawnSpeed -= 0.20f;
+
+			if (bulletFireSpeed >= 0.3)
+				bulletFireSpeed -= 0.20f;
 		}
 
 		// Shield
@@ -94,7 +107,7 @@ public class ShipController : MonoBehaviour {
 				shieldActive = true;
 				savedTime = Time.time;
 			} else {
-				if (Time.time - savedTime >= 7) {
+				if (Time.time - savedTime >= powerUpDuration) {
 					shieldActive = false;
 					randomPowerUp = -1;
 
@@ -114,7 +127,7 @@ public class ShipController : MonoBehaviour {
 				laserBeamActive = true;
 				savedTime = Time.time;
 			} else {
-				if (Time.time - savedTime >= 7) {
+				if (Time.time - savedTime >= powerUpDuration) {
 					laserBeamActive = false;
 					randomPowerUp = -1;
 				}
@@ -126,7 +139,7 @@ public class ShipController : MonoBehaviour {
 				ulti01Active = true;
 				savedTime = Time.time;
 			} else {
-				if(Time.time - savedTime >= 7){
+				if(Time.time - savedTime >= powerUpDuration){
 					ulti01Active = false;
 					randomPowerUp = -1;
 
@@ -163,5 +176,11 @@ public class ShipController : MonoBehaviour {
 		if (laserBeamActive) {
 			Invoke ("SpawnLaserBeam", laserFireSpeed);
 		}
+	}
+
+	void SpawnBullet(){
+		GameObject currentBullet = (GameObject)Instantiate (bullet, shipCannon.transform.position, Quaternion.identity);
+		
+		Invoke("SpawnBullet", bulletFireSpeed);
 	}
 }	
