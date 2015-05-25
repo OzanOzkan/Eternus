@@ -18,6 +18,10 @@ public class ShipController : MonoBehaviour {
 	public float laserFireSpeed;
 	public float bulletFireSpeed;
 	public GameObject bullet;
+	public GameObject blastPrefab;
+
+	public GameObject damagePrefab;
+	GameObject damage;
 
 	public float health;
 	public float level;
@@ -150,6 +154,8 @@ public class ShipController : MonoBehaviour {
 			}
 		}
 
+		damage.transform.position = this.transform.position;
+
 	}
 
 	void OnCollisionEnter2D (Collision2D col){
@@ -157,11 +163,21 @@ public class ShipController : MonoBehaviour {
 
 			Destroy(col.gameObject);
 
+			GameObject GameController = GameObject.Find("GameController");
+			GUIController guiController = GameController.GetComponent<GUIController>();
+			guiController.PlayerDamageUI();
+
+			damage = (GameObject)Instantiate (damagePrefab,this.transform.position, Quaternion.identity);
+			Destroy(damage.gameObject, 0.3f);
+
 			if(health > 1){
-				health -= 1;
+				health -= 1;				
 			} else {
 				Destroy(this.gameObject);
 				Destroy(shipCannon.gameObject);
+
+				GameObject blast = (GameObject)Instantiate (blastPrefab,this.transform.position, Quaternion.identity);
+				Destroy(blast.gameObject, 0.5f);
 				
 				GameObject UI = GameObject.Find("UI");
 				GameObject Buttons = UI.transform.Find("Buttons").gameObject;

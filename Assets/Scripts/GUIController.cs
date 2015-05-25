@@ -14,6 +14,7 @@ public class GUIController : MonoBehaviour {
 	public Text ultiCountdown;
 	public Image healthBar;
 	public Image ultiBar;
+	public Image playerDamage;
 
 	float[]ultiBarLevels;
 	int filledUltiBarLevel;
@@ -48,6 +49,7 @@ public class GUIController : MonoBehaviour {
 		currentKill = 0;
 
 		ultiCountdown.enabled = false; 
+		playerDamage.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -99,4 +101,11 @@ public class GUIController : MonoBehaviour {
 	public void BackToMainMenuClicked(){
 		Application.LoadLevel ("Menu");
 	}
+
+	public void PlayerDamageUI(){
+		playerDamage.enabled = true;
+		playerDamage.canvasRenderer.SetAlpha (1);
+		playerDamage.CrossFadeAlpha (0, 1f, false);
+	}
+	
 }
