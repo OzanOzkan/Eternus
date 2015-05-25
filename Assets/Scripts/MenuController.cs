@@ -18,4 +18,12 @@ public class MenuController : MonoBehaviour {
 	public void PlayClicked(){
 		Application.LoadLevel ("GameO01");
 	}
+
+	public void CreditsClicked(){
+		
+	}
+	
+	public void ExitClicked(){
+		Application.Quit ();
+	}
 }
