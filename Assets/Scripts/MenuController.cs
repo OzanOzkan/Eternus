@@ -20,7 +20,11 @@ public class MenuController : MonoBehaviour {
 	}
 
 	public void CreditsClicked(){
-		
+		Application.LoadLevel ("Credits");
+	}
+
+	public void MainMenuClicked(){
+		Application.LoadLevel ("Menu");
 	}
 	
 	public void ExitClicked(){
