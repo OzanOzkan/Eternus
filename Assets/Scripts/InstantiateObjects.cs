@@ -27,7 +27,7 @@ public class InstantiateObjects : MonoBehaviour {
 		laserBeamControl = true;
 
 		// Spawn methods for game objecs.
-		Invoke("SpawnGalaxy", 20);
+		Invoke("SpawnGalaxy", 65);
 		Invoke("SpawnStar", 5);
 		//Invoke("SpawnBullet", bulletFireSpeed);
 		Invoke("SpawnEnemies", enemySpawnSpeed);
@@ -47,14 +47,14 @@ public class InstantiateObjects : MonoBehaviour {
 
 	// Galaxy spawn
 	void SpawnGalaxy(){
-		vector = new Vector3 (Random.Range(-5,5), 12 , 0);
-		var rnd = Random.Range (0, 0);
+		vector = new Vector3 (Random.Range(-5,5), 16 , 0);
+		var rnd = Random.Range (3, 3);
 		GameObject galaxy = (GameObject)Instantiate (galaxies[rnd], vector, Quaternion.identity);
 
 		// For random direction.
 		galaxy.transform.Rotate (0, 0, Random.Range(-5.0f,5.0f));
 
-		Invoke("SpawnGalaxy", 20);
+		Invoke("SpawnGalaxy", 65);
 	}
 
 	// Star spawn
@@ -66,7 +66,7 @@ public class InstantiateObjects : MonoBehaviour {
 		// For random direction.
 		star.transform.Rotate (0, 0, Random.Range(-8.0f,8.0f));
 
-		Invoke("SpawnStar", 5);
+		Invoke("SpawnStar", 8);
 	}
 
 	/*
