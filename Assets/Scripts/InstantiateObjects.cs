@@ -48,7 +48,7 @@ public class InstantiateObjects : MonoBehaviour {
 	// Galaxy spawn
 	void SpawnGalaxy(){
 		vector = new Vector3 (Random.Range(-5,5), 16 , 0);
-		var rnd = Random.Range (3, 3);
+		var rnd = Random.Range (0, 3);
 		GameObject galaxy = (GameObject)Instantiate (galaxies[rnd], vector, Quaternion.identity);
 
 		// For random direction.
